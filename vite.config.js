@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
+  base: 'https://yoguimon.github.io/Api-Productos/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
