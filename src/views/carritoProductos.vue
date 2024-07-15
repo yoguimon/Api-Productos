@@ -30,9 +30,9 @@
                                         <td>{{product.title}}</td>
                                         <td>{{product.category}}</td>
                                         <td>{{ponerEstrellas(product.rating)}}</td>
-                                        <td>{{(product.price).toFixed(2)}}</td>
+                                        <td>{{product.price?(product.price).toFixed(2):0}}</td>
                                         <td>{{product.cantidad}}</td>
-                                        <td>{{(product.price*product.cantidad).toFixed(2)}}</td>
+                                        <td>{{product.price?(product.price*product.cantidad).toFixed(2):0}}</td>
                                         <td><button type="button" class="btn btn-success btn-sm" @click="eliminar(index)"><i class="fas fa-trash"></i></button></td>
                                     </tr>
                                 </tbody>
@@ -74,7 +74,7 @@
         for(let i=0;i<productosCarrito.value.length;i++){
             total.value = total.value + productosCarrito.value[i].subtotal;
         }
-        total.value = parseFloat(total.value.toFixed(2));
+        total.value = parseFloat(total.value?total.value.toFixed(2):0);
     }
     
     function eliminar(i){
